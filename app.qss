@@ -1,0 +1,7 @@
+QWidget {
+    background-color: #fff;
+}
+#mainWin {
+   /* background-image: url(./assets/22.jpg); */
+  border-radius: 15px;
+}
