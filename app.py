@@ -1,7 +1,7 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtGui import QIcon, QPainter, QBitmap
-from PyQt5.QtCore import Qt, QPoint
+from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QWidget, QHBoxLayout, QVBoxLayout, QSizePolicy
+from PyQt5.QtGui import QIcon, QPainter, QBitmap, QPixmap
+from PyQt5.QtCore import QSize, Qt, QPoint
 from utils.common import loadqss, drawBackground, drewRadiusRect
 
 class MainWin(QWidget):
@@ -32,12 +32,28 @@ class MainWin(QWidget):
         qssStyle = loadqss('app.qss')
         # 设置qss
         self.setStyleSheet(qssStyle)
+        self.setColseIcon()
         # 显示窗口
         self.show()
 
+    def setColseIcon(self):
+        icon = QIcon('./assets/close.png')
+        btn = QPushButton(self)
+        btn.setIcon(icon)
+        btn.setObjectName('closeBtn')
+        size = QSize(15, 15)
+        btn.setIconSize(size)
+        btn.setCursor(Qt.PointingHandCursor)
+        btn.move(self.width() - 30, 0)
+        btn.clicked.connect(self.closeWin)
+
+    # 关闭窗口
+    def closeWin(self):
+        self.close()
+
     # 绘制圆角矩形
-    def paintEvent(self, e):
-        drewRadiusRect(self, 10)
+    # def paintEvent(self, e):
+    #     drewRadiusRect(self, 10)
         
     # 窗口大小变化时重绘背景
     def resizeEvent(self, e):

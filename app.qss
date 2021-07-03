@@ -5,3 +5,16 @@ QWidget {
    /* background-image: url(./assets/22.jpg); */
   border-radius: 15px;
 }
+#closeBtn{
+    background-color: transparent;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+/* #closeBtn:hover{
+    
+} */
+/* 鼠标按下 */
+/* #closeBtn:pressed{
+    background-color: rgba(0, 0, 0, 0.05);
+} */
